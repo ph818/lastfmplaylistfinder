@@ -1,17 +1,24 @@
-# playlistfinder
+# lastfmplaylistfinder
 
-pseudo code for playlist finder
+This script looks through a scrobbles.csv from lastfm, or any compatible source, and finds repeating playlists. It may be useful for (re)discovering old playlists from a user's listening history.
 
-import csv( Downloaded from https://lastfm.ghan.nl/export/ via https://support.last.fm/t/how-can-i-download-backup-my-last-fm-scrobbling-data/171/2 )
-Only use the artist, album, song title, ... date/time fields
-look through the file for 'n = 3' lines that repeat twice or more
-display repeating lines with count of how  many times they repeated.
+Currently it finds a lot of duplicates, but ideally it would present trees of related playlists, with information about when they first appeared and when they diverged.
+
+What you need:
+
+* A csv to import. One possibility is https://lastfm.ghan.nl/export/ (via https://support.last.fm/t/how-can-i-download-backup-my-last-fm-scrobbling-data/171/2)
+
+The script uses the artist, album, song title, and date/time fields to look through the file for 'n = 3' lines that repeat twice or more, not counting them if they are all from the same album. 
+display repeating lines with count of how  many times they repeated
+
+
+Future development ideas
 
 Confounding variables:
 * Sometimes the listener listened to a song more than once before moving to the next one. Playlist finder should still find these variants
-* The time dimension provides useful context: songs listened to hours later would be a different 'session'
-* User may have listened to just part of the playlist: partial listen. Or part of the playlist, some other songs, and the second part. The program should find these too, and maybe have a setting to display them or not.
-* Sometimes the csv is small (hundreds) sometimes large (tens of thousands)
+* The time dimension provides useful context: songs listened to hours later may be a different listening 'session,' and not part of the playlist
+* User may have listened to just part of the playlist: a partial listen. Or part of the playlist, then some other songs, and then the second part. The program should find these too, and maybe have a setting to display them or not.
+* Sometimes the csv is small (hundreds) sometimes large (tens of thousands) and the script is not yet efficient.
 
 
 Advanced:
