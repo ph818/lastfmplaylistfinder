@@ -43,7 +43,7 @@ def main():
     dictsongs = {}
 
     # CSV Format: Artist,Album,Song,Date 24h Time
-    # example   : Flying Lotus,You're Dead!,Stirring,29 Oct 2020 22:49
+    # example   : Flying Lotus,You're Dead!,Stirring,14 Aug 2022 16:34
 
     with open(argv[1], newline='') as csvfile:
         names = ('artist', 'album', 'song', 'date')
